@@ -1,4 +1,4 @@
-import { FC, useContext, useState } from "react"
+import { FC, memo, useContext, useState } from "react"
 import { TodosContext } from "../../utils/Context";
 import { dragging } from "../../utils/dragging";
 import { ItemToDo } from "../ItemToDo";
@@ -10,7 +10,7 @@ interface ToDoColumnsProps {
   mark: boolean,
 }
 
-export const ToDoColumns: FC<ToDoColumnsProps> = ({ type, title, mark }) => {
+export const ToDoColumns: FC<ToDoColumnsProps> = memo(({ type, title, mark }) => {
   const { todos } = useContext(TodosContext);
   const [toggleToDoAddOrEdit, setToggleToDoAddOrEdit] = useState(false)
   const [toggleToDoId] = useState(0)
@@ -49,4 +49,4 @@ export const ToDoColumns: FC<ToDoColumnsProps> = ({ type, title, mark }) => {
       ))}
     </div>
   )
-}
+})

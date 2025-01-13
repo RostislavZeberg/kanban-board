@@ -1,4 +1,4 @@
-import { FC, useState } from "react"
+import { FC, memo, useState } from "react"
 import { Todo } from "../../utils/Interface"
 import { ToDoAddOrEdit } from "../ToDoAddOrEdit";
 
@@ -7,13 +7,13 @@ interface ItemToDoProps {
     mark: boolean,
 }
 
-export const ItemToDo: FC<ItemToDoProps> = ({ todo, mark }) => {
+export const ItemToDo: FC<ItemToDoProps> = memo(({ todo, mark }) => {
     const [toggleToDoAddOrEdit, setToggleToDoAddOrEdit] = useState(false)
     const [toggleToDoId, setToggleToDoId] = useState(0)
 
     const dateStart = new Date(todo.startDay);
     const formattedDateStart = `${dateStart.getDate()}.${dateStart.getMonth() + 1}.${dateStart.getFullYear()}`;
-  
+
     const dateEnd = new Date(todo.endDay);
     const formattedDateEnd = `${dateEnd.getDate()}.${dateEnd.getMonth() + 1}.${dateEnd.getFullYear()}`;
 
@@ -56,4 +56,4 @@ export const ItemToDo: FC<ItemToDoProps> = ({ todo, mark }) => {
         </div>
 
     )
-}
+})
