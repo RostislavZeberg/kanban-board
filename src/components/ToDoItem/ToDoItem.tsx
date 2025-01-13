@@ -2,12 +2,12 @@ import { FC, memo, useState } from "react"
 import { Todo } from "../../utils/Interface"
 import { ToDoAddOrEdit } from "../ToDoAddOrEdit";
 
-interface ItemToDoProps {
+interface ToDoItemProps {
     todo: Todo,
     mark: boolean,
 }
 
-export const ItemToDo: FC<ItemToDoProps> = memo(({ todo, mark }) => {
+export const ToDoItem: FC<ToDoItemProps> = memo(({ todo, mark }) => {
     const [toggleToDoAddOrEdit, setToggleToDoAddOrEdit] = useState(false)
     const [toggleToDoId, setToggleToDoId] = useState(0)
 
@@ -54,6 +54,5 @@ export const ItemToDo: FC<ItemToDoProps> = memo(({ todo, mark }) => {
             </>
             {toggleToDoAddOrEdit ? <ToDoAddOrEdit toggleToDoId={toggleToDoId} setToggleToDoAddOrEdit={setToggleToDoAddOrEdit} /> : ''}
         </div>
-
     )
 })

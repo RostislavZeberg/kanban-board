@@ -1,7 +1,7 @@
 import { FC, memo, useContext, useState } from "react"
 import { TodosContext } from "../../utils/Context";
 import { dragging } from "../../utils/dragging";
-import { ItemToDo } from "../ItemToDo";
+import { ToDoItem } from "../ToDoItem";
 import { ToDoAddOrEdit } from "../ToDoAddOrEdit";
 
 interface ToDoColumnsProps {
@@ -45,7 +45,7 @@ export const ToDoColumns: FC<ToDoColumnsProps> = memo(({ type, title, mark }) =>
         ''}
 
       {todosToDo.map(todo => (
-        <ItemToDo key={todo.id} todo={todo} mark={mark} />
+        <ToDoItem key={todo.id} todo={todo} mark={mark} />
       ))}
     </div>
   )
