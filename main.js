@@ -27888,31 +27888,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   App: () => (/* binding */ App)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_KanbanBoard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/KanbanBoard */ "./src/components/KanbanBoard/index.tsx");
 /* harmony import */ var _App_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App.scss */ "./src/App.scss");
-/* harmony import */ var _components_SearchTodo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/SearchTodo */ "./src/components/SearchTodo/index.tsx");
-/* harmony import */ var _components_ToDoList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/ToDoList */ "./src/components/ToDoList/index.tsx");
-/* harmony import */ var _utils_Context__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./utils/Context */ "./src/utils/Context.tsx");
-/* harmony import */ var _utils_localStorageService__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./utils/localStorageService */ "./src/utils/localStorageService.ts");
-
-
-
-
 
 
 
 const App = () => {
-    const [todos, setTodos] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
-    if ((0,_utils_localStorageService__WEBPACK_IMPORTED_MODULE_6__.getTodosFromLocalStorage)().length === 0) {
-        const temp = JSON.stringify(__webpack_require__(/*! ../tasks.json */ "./tasks.json"));
-        localStorage.setItem('todos', temp);
-    }
-    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
-        const savedTodos = (0,_utils_localStorageService__WEBPACK_IMPORTED_MODULE_6__.getTodosFromLocalStorage)();
-        setTodos(savedTodos);
-    }, []);
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "main", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "wrapper", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_utils_Context__WEBPACK_IMPORTED_MODULE_5__.TodosContext.Provider, { value: { todos, setTodos }, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "header", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", { className: "title", children: "Your tasks" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_SearchTodo__WEBPACK_IMPORTED_MODULE_3__.SearchTodo, {})] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_ToDoList__WEBPACK_IMPORTED_MODULE_4__.ToDoList, {})] }) }) }));
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_KanbanBoard__WEBPACK_IMPORTED_MODULE_1__.KanbanBoard, {}));
 };
 
 
@@ -27981,106 +27963,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/components/Done/Done.tsx":
-/*!**************************************!*\
-  !*** ./src/components/Done/Done.tsx ***!
-  \**************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Done: () => (/* binding */ Done)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _ItemToDo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ItemToDo */ "./src/components/ItemToDo/index.tsx");
-/* harmony import */ var _utils_dragging__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/dragging */ "./src/utils/dragging.tsx");
-/* harmony import */ var _utils_Context__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/Context */ "./src/utils/Context.tsx");
-/* harmony import */ var _utils_localStorageService__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/localStorageService */ "./src/utils/localStorageService.ts");
-
-
-
-
-
-
-const Done = (0,react__WEBPACK_IMPORTED_MODULE_1__.memo)(() => {
-    const { todos, setTodos } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(_utils_Context__WEBPACK_IMPORTED_MODULE_4__.TodosContext);
-    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
-        const savedTodos = (0,_utils_localStorageService__WEBPACK_IMPORTED_MODULE_5__.getTodosFromLocalStorage)();
-        setTodos(savedTodos);
-    }, []);
-    const todosDone = todos.filter(el => el.type === "done").sort((a, b) => a.startDay - b.startDay);
-    const mark = false;
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { onDragOver: (0,_utils_dragging__WEBPACK_IMPORTED_MODULE_3__.dragging)("done").handleOnDragOver, onDrop: (0,_utils_dragging__WEBPACK_IMPORTED_MODULE_3__.dragging)("done").handleOnDrop, className: "list__item item", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "item__top item__top-block", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "item__top-left", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "item__icon item__icon-done" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", { className: "item__title", children: "Review" })] }) }), todosDone.map(todo => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ItemToDo__WEBPACK_IMPORTED_MODULE_2__.ItemToDo, { todo: todo, mark: mark }, todo.id)))] }));
-});
-
-
-/***/ }),
-
-/***/ "./src/components/Done/index.tsx":
-/*!***************************************!*\
-  !*** ./src/components/Done/index.tsx ***!
-  \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Done: () => (/* reexport safe */ _Done__WEBPACK_IMPORTED_MODULE_0__.Done)
-/* harmony export */ });
-/* harmony import */ var _Done__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Done */ "./src/components/Done/Done.tsx");
-
-
-
-/***/ }),
-
-/***/ "./src/components/InProgress/InProgress.tsx":
-/*!**************************************************!*\
-  !*** ./src/components/InProgress/InProgress.tsx ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   InProgress: () => (/* binding */ InProgress)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _ItemToDo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ItemToDo */ "./src/components/ItemToDo/index.tsx");
-/* harmony import */ var _utils_Context__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/Context */ "./src/utils/Context.tsx");
-/* harmony import */ var _utils_dragging__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/dragging */ "./src/utils/dragging.tsx");
-
-
-
-
-
-const InProgress = (0,react__WEBPACK_IMPORTED_MODULE_1__.memo)(() => {
-    const { todos } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(_utils_Context__WEBPACK_IMPORTED_MODULE_3__.TodosContext);
-    const todosToDo = todos.filter(el => el.type === "in_progress").sort((a, b) => a.startDay - b.startDay);
-    const mark = false;
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { onDragOver: (0,_utils_dragging__WEBPACK_IMPORTED_MODULE_4__.dragging)("in_progress").handleOnDragOver, onDrop: (0,_utils_dragging__WEBPACK_IMPORTED_MODULE_4__.dragging)("in_progress").handleOnDrop, className: "list__item item", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "item__top", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "item__icon item__icon-inProgress" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", { className: "item__title", children: "In Progress" })] }), todosToDo.map(todo => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ItemToDo__WEBPACK_IMPORTED_MODULE_2__.ItemToDo, { todo: todo, mark: mark }, todo.id)))] }));
-});
-
-
-/***/ }),
-
-/***/ "./src/components/InProgress/index.tsx":
-/*!*********************************************!*\
-  !*** ./src/components/InProgress/index.tsx ***!
-  \*********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   InProgress: () => (/* reexport safe */ _InProgress__WEBPACK_IMPORTED_MODULE_0__.InProgress)
-/* harmony export */ });
-/* harmony import */ var _InProgress__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./InProgress */ "./src/components/InProgress/InProgress.tsx");
-
-
-
-/***/ }),
-
 /***/ "./src/components/ItemToDo/ItemToDo.tsx":
 /*!**********************************************!*\
   !*** ./src/components/ItemToDo/ItemToDo.tsx ***!
@@ -28142,48 +28024,58 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/components/Review/Review.tsx":
-/*!******************************************!*\
-  !*** ./src/components/Review/Review.tsx ***!
-  \******************************************/
+/***/ "./src/components/KanbanBoard/KanbanBoard.tsx":
+/*!****************************************************!*\
+  !*** ./src/components/KanbanBoard/KanbanBoard.tsx ***!
+  \****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Review: () => (/* binding */ Review)
+/* harmony export */   KanbanBoard: () => (/* binding */ KanbanBoard)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _ItemToDo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ItemToDo */ "./src/components/ItemToDo/index.tsx");
-/* harmony import */ var _utils_dragging__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/dragging */ "./src/utils/dragging.tsx");
-/* harmony import */ var _utils_Context__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/Context */ "./src/utils/Context.tsx");
+/* harmony import */ var _utils_Context__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/Context */ "./src/utils/Context.tsx");
+/* harmony import */ var _SearchTodo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../SearchTodo */ "./src/components/SearchTodo/index.tsx");
+/* harmony import */ var _ToDoList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../ToDoList */ "./src/components/ToDoList/index.tsx");
+/* harmony import */ var _utils_localStorageService__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/localStorageService */ "./src/utils/localStorageService.ts");
 
 
 
 
 
-const Review = (0,react__WEBPACK_IMPORTED_MODULE_1__.memo)(() => {
-    const { todos, setTodos } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(_utils_Context__WEBPACK_IMPORTED_MODULE_4__.TodosContext);
-    const todosToDo = todos.filter(el => el.type === "review").sort((a, b) => a.startDay - b.startDay);
-    const mark = false;
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { onDragOver: (0,_utils_dragging__WEBPACK_IMPORTED_MODULE_3__.dragging)("review").handleOnDragOver, onDrop: (0,_utils_dragging__WEBPACK_IMPORTED_MODULE_3__.dragging)("review").handleOnDrop, className: "list__item item", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "item__top", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "item__icon item__icon-review" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", { className: "item__title", children: "Review" })] }), todosToDo.map(todo => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ItemToDo__WEBPACK_IMPORTED_MODULE_2__.ItemToDo, { todo: todo, mark: mark }, todo.id)))] }));
-});
+
+const KanbanBoard = () => {
+    const [todos, setTodos] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
+    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+        const dataTasks = (0,_utils_localStorageService__WEBPACK_IMPORTED_MODULE_5__.getTodosFromLocalStorage)();
+        if (dataTasks.length === 0) {
+            const temp = JSON.stringify(__webpack_require__(/*! ../../../tasks.json */ "./tasks.json"));
+            localStorage.setItem('todos', temp);
+        }
+        ;
+        const savedTodos = dataTasks;
+        setTodos(savedTodos);
+    }, []);
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "main", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "wrapper", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_utils_Context__WEBPACK_IMPORTED_MODULE_2__.TodosContext.Provider, { value: { todos, setTodos }, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "header", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", { className: "title", children: "Your tasks" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_SearchTodo__WEBPACK_IMPORTED_MODULE_3__.SearchTodo, {})] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ToDoList__WEBPACK_IMPORTED_MODULE_4__.ToDoList, {})] }) }) }));
+};
 
 
 /***/ }),
 
-/***/ "./src/components/Review/index.tsx":
-/*!*****************************************!*\
-  !*** ./src/components/Review/index.tsx ***!
-  \*****************************************/
+/***/ "./src/components/KanbanBoard/index.tsx":
+/*!**********************************************!*\
+  !*** ./src/components/KanbanBoard/index.tsx ***!
+  \**********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Review: () => (/* reexport safe */ _Review__WEBPACK_IMPORTED_MODULE_0__.Review)
+/* harmony export */   KanbanBoard: () => (/* reexport safe */ _KanbanBoard__WEBPACK_IMPORTED_MODULE_0__.KanbanBoard)
 /* harmony export */ });
-/* harmony import */ var _Review__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Review */ "./src/components/Review/Review.tsx");
+/* harmony import */ var _KanbanBoard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./KanbanBoard */ "./src/components/KanbanBoard/KanbanBoard.tsx");
 
 
 
@@ -28201,7 +28093,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
-const SearchTodoView = ({ todo, setValueInput }) => {
+const SearchTodoView = ({ todo }) => {
     const dateStart = new Date(todo.startDay);
     const formattedDateStart = `${dateStart.getDate()}.${dateStart.getMonth() + 1}.${dateStart.getFullYear()}`;
     const dateEnd = new Date(todo.endDay);
@@ -28250,18 +28142,24 @@ __webpack_require__.r(__webpack_exports__);
 const SearchTodo = (0,react__WEBPACK_IMPORTED_MODULE_1__.memo)(() => {
     const { todos } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(_utils_Context__WEBPACK_IMPORTED_MODULE_2__.TodosContext);
     const [valueInput, setValueInput] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("");
-    let todosFiter = [];
-    const fromInput = valueInput.split(".");
-    const date = `${Number(fromInput[2])}, ${Number(fromInput[1])}, ${Number(fromInput[0])}`;
-    const isDateValid = (date) => !Number.isNaN(new Date(date).valueOf());
-    if (isDateValid(new Date(date))) {
-        todosFiter = todos.filter(el => `${(new Date(el.startDay)).getDate()}.${(new Date(el.startDay)).getMonth() + 1}.${(new Date(el.startDay)).getFullYear()}` === fromInput.join('.')
-            ||
-                `${(new Date(el.endDay)).getDate()}.${(new Date(el.endDay)).getMonth() + 1}.${(new Date(el.endDay)).getFullYear()}` === fromInput.join('.'));
-    }
-    else {
-        todosFiter = todos.filter(el => el.text.includes(valueInput));
-    }
+    const [todosFiter, setTodosFiter] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
+    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+        const fromInput = valueInput.split(".");
+        const date = `${Number(fromInput[2])}, ${Number(fromInput[1])}, ${Number(fromInput[0])}`;
+        const isDateValid = (date) => !Number.isNaN(new Date(date).valueOf());
+        if (isDateValid(new Date(date))) {
+            setTodosFiter(todos.filter(el => `${(new Date(el.startDay)).getDate()}
+                .${(new Date(el.startDay)).getMonth() + 1}
+                .${(new Date(el.startDay)).getFullYear()}` === fromInput.join('.')
+                ||
+                    `${(new Date(el.endDay)).getDate()}
+                .${(new Date(el.endDay)).getMonth() + 1}
+                .${(new Date(el.endDay)).getFullYear()}` === fromInput.join('.')));
+        }
+        else {
+            setTodosFiter(todos.filter(el => el.text.includes(valueInput)));
+        }
+    }, [todos]);
     const handlerSearchClear = () => {
         const searchInput = document.getElementById("search-input");
         if (searchInput !== null) {
@@ -28269,9 +28167,10 @@ const SearchTodo = (0,react__WEBPACK_IMPORTED_MODULE_1__.memo)(() => {
         }
         setValueInput("");
     };
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "search", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", { className: "search__input", type: "text", placeholder: "\u043F\u043E\u0438\u0441\u043A...", id: "search-input", onChange: (event) => setValueInput(event.target.value) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "search__icon" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { onClick: handlerSearchClear, className: "search__clear", width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4149L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z", fill: "white", fillOpacity: "0.6" }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("ul", { className: valueInput !== "" && todos.length !== 0
-                    ? "search__list list-reset"
-                    : "search__list-None", id: "search-list", style: { position: "absolute", top: 40 }, children: todosFiter.map((todo) => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { className: "search__item list-reset", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_SearchTodoView__WEBPACK_IMPORTED_MODULE_3__.SearchTodoView, { todo: todo, setValueInput: setValueInput }) }, todo.id))) })] }));
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "search", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", { className: "search__input", type: "text", placeholder: "\u043F\u043E\u0438\u0441\u043A...", id: "search-input", onChange: (event) => setValueInput(event.target.value) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "search__icon" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { onClick: handlerSearchClear, className: "search__clear", width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4149L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z", fill: "white", fillOpacity: "0.6" }) }), valueInput ?
+                (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("ul", { className: "search__list list-reset", id: "search-list", style: { position: "absolute", top: 40 }, children: todosFiter.map((todo) => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { className: "search__item list-reset", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_SearchTodoView__WEBPACK_IMPORTED_MODULE_3__.SearchTodoView, { todo: todo }) }, todo.id))) })
+                :
+                    null] }));
 });
 
 
@@ -28392,6 +28291,62 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/components/ToDoColumns/ToDoColumns.tsx":
+/*!****************************************************!*\
+  !*** ./src/components/ToDoColumns/ToDoColumns.tsx ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ToDoColumns: () => (/* binding */ ToDoColumns)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _utils_Context__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/Context */ "./src/utils/Context.tsx");
+/* harmony import */ var _utils_dragging__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/dragging */ "./src/utils/dragging.tsx");
+/* harmony import */ var _ItemToDo__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../ItemToDo */ "./src/components/ItemToDo/index.tsx");
+/* harmony import */ var _ToDoAddOrEdit__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../ToDoAddOrEdit */ "./src/components/ToDoAddOrEdit/index.tsx");
+
+
+
+
+
+
+const ToDoColumns = ({ type, title, mark }) => {
+    const { todos } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(_utils_Context__WEBPACK_IMPORTED_MODULE_2__.TodosContext);
+    const [toggleToDoAddOrEdit, setToggleToDoAddOrEdit] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
+    const [toggleToDoId] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(0);
+    const todosToDo = todos.filter(el => el.type === type).sort((a, b) => a.startDay - b.startDay);
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { onDragOver: (0,_utils_dragging__WEBPACK_IMPORTED_MODULE_3__.dragging)(type).handleOnDragOver, onDrop: (0,_utils_dragging__WEBPACK_IMPORTED_MODULE_3__.dragging)(type).handleOnDrop, className: "list__item item", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "item__top item__top-block", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "item__top-left", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "item__icon item__icon-todo" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", { className: "item__title", children: title })] }), mark ?
+                        (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "btn-reset item__btn-add", onClick: () => setToggleToDoAddOrEdit(true), children: "+ \u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C" })
+                        :
+                            null] }), toggleToDoAddOrEdit ?
+                (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ToDoAddOrEdit__WEBPACK_IMPORTED_MODULE_5__.ToDoAddOrEdit, { setToggleToDoAddOrEdit: setToggleToDoAddOrEdit, toggleToDoId: toggleToDoId })
+                :
+                    '', todosToDo.map(todo => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ItemToDo__WEBPACK_IMPORTED_MODULE_4__.ItemToDo, { todo: todo, mark: mark }, todo.id)))] }));
+};
+
+
+/***/ }),
+
+/***/ "./src/components/ToDoColumns/index.tsx":
+/*!**********************************************!*\
+  !*** ./src/components/ToDoColumns/index.tsx ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ToDoColumns: () => (/* reexport safe */ _ToDoColumns__WEBPACK_IMPORTED_MODULE_0__.ToDoColumns)
+/* harmony export */ });
+/* harmony import */ var _ToDoColumns__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ToDoColumns */ "./src/components/ToDoColumns/ToDoColumns.tsx");
+
+
+
+/***/ }),
+
 /***/ "./src/components/ToDoList/ToDoList.tsx":
 /*!**********************************************!*\
   !*** ./src/components/ToDoList/ToDoList.tsx ***!
@@ -28403,19 +28358,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   ToDoList: () => (/* binding */ ToDoList)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* harmony import */ var _Done__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Done */ "./src/components/Done/index.tsx");
-/* harmony import */ var _InProgress__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../InProgress */ "./src/components/InProgress/index.tsx");
-/* harmony import */ var _Review__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Review */ "./src/components/Review/index.tsx");
-/* harmony import */ var _ToDo__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../ToDo */ "./src/components/ToDo/index.tsx");
-/* harmony import */ var _ButtonDeleteTodo__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../ButtonDeleteTodo */ "./src/components/ButtonDeleteTodo/index.tsx");
+/* harmony import */ var _ButtonDeleteTodo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ButtonDeleteTodo */ "./src/components/ButtonDeleteTodo/index.tsx");
+/* harmony import */ var _ToDoColumns__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ToDoColumns */ "./src/components/ToDoColumns/index.tsx");
 
 
 
-
-
-
+const listColumnsTodos = [
+    {
+        type: "todo",
+        title: "To Do",
+        mark: true,
+    },
+    {
+        type: "in_progress",
+        title: "In Progress",
+        mark: false,
+    },
+    {
+        type: "review",
+        title: "Review",
+        mark: false,
+    },
+    {
+        type: "done",
+        title: "Done",
+        mark: false,
+    },
+];
 const ToDoList = () => {
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "main__list list", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ToDo__WEBPACK_IMPORTED_MODULE_4__.ToDo, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_InProgress__WEBPACK_IMPORTED_MODULE_2__.InProgress, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Review__WEBPACK_IMPORTED_MODULE_3__.Review, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Done__WEBPACK_IMPORTED_MODULE_1__.Done, {}), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ButtonDeleteTodo__WEBPACK_IMPORTED_MODULE_5__.ButtonDeleteTodo, {})] }));
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "main__list list", children: [listColumnsTodos.map(column => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ToDoColumns__WEBPACK_IMPORTED_MODULE_2__.ToDoColumns, { type: column.type, title: column.title, mark: column.mark }))), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ButtonDeleteTodo__WEBPACK_IMPORTED_MODULE_1__.ButtonDeleteTodo, {})] }));
 };
 
 
@@ -28432,59 +28403,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   ToDoList: () => (/* reexport safe */ _ToDoList__WEBPACK_IMPORTED_MODULE_0__.ToDoList)
 /* harmony export */ });
 /* harmony import */ var _ToDoList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ToDoList */ "./src/components/ToDoList/ToDoList.tsx");
-
-
-
-/***/ }),
-
-/***/ "./src/components/ToDo/ToDo.tsx":
-/*!**************************************!*\
-  !*** ./src/components/ToDo/ToDo.tsx ***!
-  \**************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ToDo: () => (/* binding */ ToDo)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _ItemToDo_ItemToDo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ItemToDo/ItemToDo */ "./src/components/ItemToDo/ItemToDo.tsx");
-/* harmony import */ var _ToDoAddOrEdit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ToDoAddOrEdit */ "./src/components/ToDoAddOrEdit/index.tsx");
-/* harmony import */ var _utils_dragging__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/dragging */ "./src/utils/dragging.tsx");
-/* harmony import */ var _utils_Context__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/Context */ "./src/utils/Context.tsx");
-
-
-
-
-
-
-const ToDo = (0,react__WEBPACK_IMPORTED_MODULE_1__.memo)(() => {
-    const { todos } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(_utils_Context__WEBPACK_IMPORTED_MODULE_5__.TodosContext);
-    const [toggleToDoAddOrEdit, setToggleToDoAddOrEdit] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
-    const [toggleToDoId] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(0);
-    const todosToDo = todos.filter(el => el.type === "todo").sort((a, b) => a.startDay - b.startDay);
-    const mark = true;
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { onDragOver: (0,_utils_dragging__WEBPACK_IMPORTED_MODULE_4__.dragging)("todo").handleOnDragOver, onDrop: (0,_utils_dragging__WEBPACK_IMPORTED_MODULE_4__.dragging)("todo").handleOnDrop, className: "list__item item", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "item__top item__top-block", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "item__top-left", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "item__icon item__icon-todo" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", { className: "item__title", children: "To Do" })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "btn-reset item__btn-add", onClick: () => setToggleToDoAddOrEdit(true), children: "+ \u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C" })] }), toggleToDoAddOrEdit ?
-                (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ToDoAddOrEdit__WEBPACK_IMPORTED_MODULE_3__.ToDoAddOrEdit, { setToggleToDoAddOrEdit: setToggleToDoAddOrEdit, toggleToDoId: toggleToDoId })
-                : '', todosToDo.map(todo => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ItemToDo_ItemToDo__WEBPACK_IMPORTED_MODULE_2__.ItemToDo, { todo: todo, mark: mark }, todo.id)))] }));
-});
-
-
-/***/ }),
-
-/***/ "./src/components/ToDo/index.tsx":
-/*!***************************************!*\
-  !*** ./src/components/ToDo/index.tsx ***!
-  \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ToDo: () => (/* reexport safe */ _ToDo__WEBPACK_IMPORTED_MODULE_0__.ToDo)
-/* harmony export */ });
-/* harmony import */ var _ToDo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ToDo */ "./src/components/ToDo/ToDo.tsx");
 
 
 
