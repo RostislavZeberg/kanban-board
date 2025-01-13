@@ -1,4 +1,4 @@
-import { memo, useContext, useState } from "react";
+import { memo, useContext, useEffect, useState } from "react";
 import { TodosContext } from "../../utils/Context";
 import { SearchTodoView } from "../SearchTodoView";
 import { TodoList } from "../../utils/Interface";
@@ -6,23 +6,28 @@ import { TodoList } from "../../utils/Interface";
 export const SearchTodo = memo(() => {
     const { todos } = useContext(TodosContext);
     const [valueInput, setValueInput] = useState("");
+    const [todosFiter, setTodosFiter] = useState<TodoList>([]);
 
-    let todosFiter: TodoList = []
+    useEffect(() => {
+        const fromInput = valueInput.split(".");
+        const date = `${Number(fromInput[2])}, ${Number(fromInput[1])}, ${Number(fromInput[0])}`;
+        const isDateValid = (date: string | number | Date) => !Number.isNaN(new Date(date).valueOf());
 
-    const fromInput = valueInput.split(".")
+        if (isDateValid(new Date(date))) {
+            setTodosFiter(todos.filter(el =>
+                `${(new Date(el.startDay)).getDate()}
+                .${(new Date(el.startDay)).getMonth() + 1}
+                .${(new Date(el.startDay)).getFullYear()}` === fromInput.join('.')
+                ||
+                `${(new Date(el.endDay)).getDate()}
+                .${(new Date(el.endDay)).getMonth() + 1}
+                .${(new Date(el.endDay)).getFullYear()}` === fromInput.join('.')
+            ))
+        } else {
+            setTodosFiter(todos.filter(el => el.text.includes(valueInput)))
+        }
+    },[todos])
 
-    const date = `${Number(fromInput[2])}, ${Number(fromInput[1])}, ${Number(fromInput[0])}`
-    const isDateValid = (date: string | number | Date) => !Number.isNaN(new Date(date).valueOf());
-
-    if (isDateValid(new Date(date))) {
-        todosFiter = todos.filter(el =>
-            `${(new Date(el.startDay)).getDate()}.${(new Date(el.startDay)).getMonth() + 1}.${(new Date(el.startDay)).getFullYear()}` === fromInput.join('.')
-            ||
-            `${(new Date(el.endDay)).getDate()}.${(new Date(el.endDay)).getMonth() + 1}.${(new Date(el.endDay)).getFullYear()}` === fromInput.join('.')
-        )
-    } else {
-        todosFiter = todos.filter(el => el.text.includes(valueInput))
-    }
 
     const handlerSearchClear = () => {
         const searchInput = document.getElementById("search-input");
@@ -57,27 +62,26 @@ export const SearchTodo = memo(() => {
                     fillOpacity="0.6"
                 />
             </svg>
-            <ul
-                className={
-                    valueInput !== "" && todos.length !== 0
-                        ? "search__list list-reset"
-                        : "search__list-None"
-                }
-                id="search-list"
-                style={{ position: "absolute", top: 40 }}
-            >
-                {todosFiter.map((todo) => (
-                    <li
-                        className="search__item list-reset"
-                        key={todo.id}
-                    >
-                        <SearchTodoView
-                            todo={todo}
-                            setValueInput={setValueInput}
-                        />
-                    </li>
-                ))}
-            </ul>
+            {valueInput ?
+                <ul
+                    className="search__list list-reset"
+                    id="search-list"
+                    style={{ position: "absolute", top: 40 }}
+                >
+                    {todosFiter.map((todo) => (
+                        <li
+                            className="search__item list-reset"
+                            key={todo.id}
+                        >
+                            <SearchTodoView
+                                todo={todo}
+                            />
+                        </li>
+                    ))}
+                </ul>
+                :
+                null
+            }
         </div>
     )
 })

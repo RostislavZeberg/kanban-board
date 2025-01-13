@@ -3,10 +3,9 @@ import { Todo } from "../../utils/Interface"
 
 interface SearchTodoViewProps {
     todo: Todo;
-    setValueInput: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export const SearchTodoView: FC<SearchTodoViewProps> = ({ todo, setValueInput }) => {
+export const SearchTodoView: FC<SearchTodoViewProps> = ({ todo }) => {
     const dateStart = new Date(todo.startDay);
     const formattedDateStart = `${dateStart.getDate()}.${dateStart.getMonth() + 1}.${dateStart.getFullYear()}`;
 
