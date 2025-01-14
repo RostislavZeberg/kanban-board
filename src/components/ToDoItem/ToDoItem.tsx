@@ -32,10 +32,12 @@ export const ToDoItem: FC<ToDoItemProps> = memo(({ todo, mark }) => {
             onDragStart={(e) => {
                 handleOnDrag(e, todo.id.toString());
             }}
-            className={todo.type !== "done" ?
+            className=
+            {todo.type !== "done" ?
                 (dateEnd > new Date() ?
                     "item__todo todo"
-                    : "item__todo todo todo-error")
+                    : "item__todo todo todo-error"
+                )
                 : "item__todo todo"
             }
         >

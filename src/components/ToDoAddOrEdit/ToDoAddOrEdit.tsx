@@ -32,8 +32,7 @@ export const ToDoAddOrEdit: FC<ToDoAddOrEditProps> = ({ setToggleToDoAddOrEdit, 
         setTodos(savedTodos);
     }, []);
 
-    const onSubmit = (data: ToDoAddOrEditForm) => {
-       
+    const onSubmit = (data: ToDoAddOrEditForm) => {       
         if (toggleToDoId) {
             const newTodos = todos.map(el => {
                 if (el.id === toggleToDoId) {
@@ -44,13 +43,11 @@ export const ToDoAddOrEdit: FC<ToDoAddOrEditProps> = ({ setToggleToDoAddOrEdit, 
                         endDay: data.endDay.getTime(),
                     }
                 }
-
                 return el
             })
             saveTodosToLocalStorage(newTodos);
             setTodos(newTodos);
             setToggleToDoAddOrEdit(false);
-
         } else {
             const newTodo = {
                 id: todos.length + 1,
@@ -63,7 +60,6 @@ export const ToDoAddOrEdit: FC<ToDoAddOrEditProps> = ({ setToggleToDoAddOrEdit, 
             saveTodosToLocalStorage(todos);
             setToggleToDoAddOrEdit(false);
         }
-
     }
 
     const { register, handleSubmit, formState: { errors } } = useForm<ToDoAddOrEditForm>({

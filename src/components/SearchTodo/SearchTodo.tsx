@@ -14,19 +14,16 @@ export const SearchTodo = memo(() => {
         const isDateValid = (date: string | number | Date) => !Number.isNaN(new Date(date).valueOf());
 
         if (isDateValid(new Date(date))) {
+
             setTodosFiter(todos.filter(el =>
-                `${(new Date(el.startDay)).getDate()}
-                .${(new Date(el.startDay)).getMonth() + 1}
-                .${(new Date(el.startDay)).getFullYear()}` === fromInput.join('.')
+                (`${(new Date(el.startDay)).getDate()}.${(new Date(el.startDay)).getMonth() + 1}.${(new Date(el.startDay)).getFullYear()}` === fromInput.join('.'))
                 ||
-                `${(new Date(el.endDay)).getDate()}
-                .${(new Date(el.endDay)).getMonth() + 1}
-                .${(new Date(el.endDay)).getFullYear()}` === fromInput.join('.')
+                (`${(new Date(el.endDay)).getDate()}.${(new Date(el.endDay)).getMonth() + 1}.${(new Date(el.endDay)).getFullYear()}` === fromInput.join('.'))
             ))
         } else {
             setTodosFiter(todos.filter(el => el.text.includes(valueInput)))
         }
-    },[todos])
+    }, [todos, valueInput])
 
 
     const handlerSearchClear = () => {
@@ -36,6 +33,7 @@ export const SearchTodo = memo(() => {
         }
         setValueInput("");
     };
+
 
     return (
         <div className="search">

@@ -28,10 +28,9 @@ export const ToDoList = () => {
 
   return (
     <div className="main__list list">
-      {listColumnsTodos.map(column => (
-        <ToDoColumns type={column.type} title={column.title} mark={column.mark}/>
+      {listColumnsTodos.map((column, i) => (
+        <ToDoColumns key={i} type={column.type} title={column.title} mark={column.mark}/>
       ))}
-
       <ButtonDeleteTodo />
     </div>
   )
