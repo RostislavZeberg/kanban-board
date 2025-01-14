@@ -27995,8 +27995,7 @@ const KanbanBoard = () => {
             localStorage.setItem('todos', temp);
         }
         ;
-        const savedTodos = dataTasks;
-        setTodos(savedTodos);
+        setTodos(dataTasks);
     }, []);
     return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "main", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "wrapper", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_utils_Context__WEBPACK_IMPORTED_MODULE_2__.TodosContext.Provider, { value: { todos, setTodos }, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "header", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", { className: "title", children: "Your tasks" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_SearchTodo__WEBPACK_IMPORTED_MODULE_3__.SearchTodo, {})] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ToDoList__WEBPACK_IMPORTED_MODULE_4__.ToDoList, {})] }) }) }));
 };
@@ -28082,27 +28081,28 @@ const SearchTodo = (0,react__WEBPACK_IMPORTED_MODULE_1__.memo)(() => {
     const { todos } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(_utils_Context__WEBPACK_IMPORTED_MODULE_2__.TodosContext);
     const [valueInput, setValueInput] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("");
     const [todosFiter, setTodosFiter] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
+    const inputRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
     (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
         const fromInput = valueInput.split(".");
         const date = `${Number(fromInput[2])}, ${Number(fromInput[1])}, ${Number(fromInput[0])}`;
         const isDateValid = (date) => !Number.isNaN(new Date(date).valueOf());
+        const dateTodo = (date) => {
+            return `${(new Date(date)).getDate()}.${(new Date(date)).getMonth() + 1}.${(new Date(date)).getFullYear()}`;
+        };
         if (isDateValid(new Date(date))) {
-            setTodosFiter(todos.filter(el => (`${(new Date(el.startDay)).getDate()}.${(new Date(el.startDay)).getMonth() + 1}.${(new Date(el.startDay)).getFullYear()}` === fromInput.join('.'))
-                ||
-                    (`${(new Date(el.endDay)).getDate()}.${(new Date(el.endDay)).getMonth() + 1}.${(new Date(el.endDay)).getFullYear()}` === fromInput.join('.'))));
+            setTodosFiter(todos.filter(el => (dateTodo(el.startDay) === fromInput.join('.')) || (dateTodo(el.endDay) === fromInput.join('.'))));
         }
         else {
             setTodosFiter(todos.filter(el => el.text.includes(valueInput)));
         }
     }, [todos, valueInput]);
     const handlerSearchClear = () => {
-        const searchInput = document.getElementById("search-input");
-        if (searchInput !== null) {
-            searchInput.value = "";
+        if (inputRef.current !== null) {
+            inputRef.current.value = '';
         }
         setValueInput("");
     };
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "search", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", { className: "search__input", type: "text", placeholder: "\u043F\u043E\u0438\u0441\u043A...", id: "search-input", onChange: (event) => setValueInput(event.target.value) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "search__icon" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { onClick: handlerSearchClear, className: "search__clear", width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4149L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z", fill: "white", fillOpacity: "0.6" }) }), valueInput ?
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "search", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", { className: "search__input", type: "text", placeholder: "\u043F\u043E\u0438\u0441\u043A...", id: "search-input", ref: inputRef, onChange: (event) => setValueInput(event.target.value) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "search__icon" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { onClick: handlerSearchClear, className: "search__clear", width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4149L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z", fill: "white", fillOpacity: "0.6" }) }), valueInput ?
                 (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("ul", { className: "search__list list-reset", id: "search-list", style: { position: "absolute", top: 40 }, children: todosFiter.map((todo) => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", { className: "search__item list-reset", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_SearchTodoView__WEBPACK_IMPORTED_MODULE_3__.SearchTodoView, { todo: todo }) }, todo.id))) })
                 :
                     null] }));
