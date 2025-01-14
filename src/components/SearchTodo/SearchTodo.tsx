@@ -1,4 +1,4 @@
-import { memo, useContext, useEffect, useState } from "react";
+import { memo, useContext, useEffect, useRef, useState } from "react";
 import { TodosContext } from "../../utils/Context";
 import { SearchTodoView } from "../SearchTodoView";
 import { TodoList } from "../../utils/Interface";
@@ -7,18 +7,20 @@ export const SearchTodo = memo(() => {
     const { todos } = useContext(TodosContext);
     const [valueInput, setValueInput] = useState("");
     const [todosFiter, setTodosFiter] = useState<TodoList>([]);
+    const inputRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
         const fromInput = valueInput.split(".");
         const date = `${Number(fromInput[2])}, ${Number(fromInput[1])}, ${Number(fromInput[0])}`;
         const isDateValid = (date: string | number | Date) => !Number.isNaN(new Date(date).valueOf());
 
-        if (isDateValid(new Date(date))) {
+        const dateTodo = (date: number): string => {
+            return `${(new Date(date)).getDate()}.${(new Date(date)).getMonth() + 1}.${(new Date(date)).getFullYear()}`
+        }
 
+        if (isDateValid(new Date(date))) {
             setTodosFiter(todos.filter(el =>
-                (`${(new Date(el.startDay)).getDate()}.${(new Date(el.startDay)).getMonth() + 1}.${(new Date(el.startDay)).getFullYear()}` === fromInput.join('.'))
-                ||
-                (`${(new Date(el.endDay)).getDate()}.${(new Date(el.endDay)).getMonth() + 1}.${(new Date(el.endDay)).getFullYear()}` === fromInput.join('.'))
+                (dateTodo(el.startDay) === fromInput.join('.')) || (dateTodo(el.endDay) === fromInput.join('.'))
             ))
         } else {
             setTodosFiter(todos.filter(el => el.text.includes(valueInput)))
@@ -27,9 +29,8 @@ export const SearchTodo = memo(() => {
 
 
     const handlerSearchClear = () => {
-        const searchInput = document.getElementById("search-input");
-        if (searchInput !== null) {
-            (searchInput as HTMLInputElement).value = "";
+        if (inputRef.current !== null) {
+            inputRef.current.value = '';
         }
         setValueInput("");
     };
@@ -42,6 +43,7 @@ export const SearchTodo = memo(() => {
                 type="text"
                 placeholder="поиск..."
                 id="search-input"
+                ref={inputRef}
                 onChange={(event) => setValueInput(event.target.value)}
             />
             <div className="search__icon"></div>
