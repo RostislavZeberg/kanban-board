@@ -14,8 +14,7 @@ export const KanbanBoard = () => {
             const temp = JSON.stringify(require('../../../tasks.json'));
             localStorage.setItem('todos', temp);
         };
-        const savedTodos = dataTasks;
-        setTodos(savedTodos);
+        setTodos(dataTasks);
     }, []);
 
     return (
