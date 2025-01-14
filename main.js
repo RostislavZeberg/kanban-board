@@ -27963,67 +27963,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/components/ItemToDo/ItemToDo.tsx":
-/*!**********************************************!*\
-  !*** ./src/components/ItemToDo/ItemToDo.tsx ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ItemToDo: () => (/* binding */ ItemToDo)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _ToDoAddOrEdit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ToDoAddOrEdit */ "./src/components/ToDoAddOrEdit/index.tsx");
-
-
-
-const ItemToDo = ({ todo, mark }) => {
-    const [toggleToDoAddOrEdit, setToggleToDoAddOrEdit] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
-    const [toggleToDoId, setToggleToDoId] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(0);
-    const dateStart = new Date(todo.startDay);
-    const formattedDateStart = `${dateStart.getDate()}.${dateStart.getMonth() + 1}.${dateStart.getFullYear()}`;
-    const dateEnd = new Date(todo.endDay);
-    const formattedDateEnd = `${dateEnd.getDate()}.${dateEnd.getMonth() + 1}.${dateEnd.getFullYear()}`;
-    const handlerShowToDoEdit = () => {
-        setToggleToDoAddOrEdit(true);
-        setToggleToDoId(todo.id);
-    };
-    function handleOnDrag(e, id) {
-        e.dataTransfer.setData("id", id);
-    }
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { draggable: true, onDragStart: (e) => {
-            handleOnDrag(e, todo.id.toString());
-        }, className: todo.type !== "done" ?
-            (dateEnd > new Date() ?
-                "item__todo todo"
-                : "item__todo todo todo-error")
-            : "item__todo todo", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "todo__descr", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", { className: "todo__span", children: "\u041D\u0430\u0447\u0430\u043B\u043E:" }), " ", formattedDateStart] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "todo__descr", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", { className: "todo__span", children: "\u041E\u043A\u043E\u043D\u0447\u0430\u043D\u0438\u0435:" }), " ", formattedDateEnd] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "todo__descr", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", { className: "todo__span", children: "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435:" }), " ", todo.text] }), mark ?
-                        (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { onClick: handlerShowToDoEdit, type: "submit", className: "btn-reset", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", { className: "todo__btn", width: "40", height: "40", viewBox: "0 0 40 40", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("circle", { cx: "20", cy: "20", r: "20", fill: "white", fillOpacity: "0.08" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M26.5793 10.9449C26.2042 10.57 25.6956 10.3594 25.1653 10.3594C24.6349 10.3594 24.1263 10.57 23.7512 10.9449L22.1063 12.5909L27.4093 17.8939L29.0543 16.2499C29.2401 16.0642 29.3874 15.8437 29.488 15.601C29.5886 15.3583 29.6403 15.0982 29.6403 14.8354C29.6403 14.5727 29.5886 14.3126 29.488 14.0699C29.3874 13.8272 29.2401 13.6067 29.0543 13.4209L26.5793 10.9449ZM25.9953 19.3079L20.6922 14.0049L11.8572 22.8399L10.7812 29.2199L17.1612 28.1429L25.9953 19.3079Z", fill: "white" })] }) })
-                        : ''] }), toggleToDoAddOrEdit ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ToDoAddOrEdit__WEBPACK_IMPORTED_MODULE_2__.ToDoAddOrEdit, { toggleToDoId: toggleToDoId, setToggleToDoAddOrEdit: setToggleToDoAddOrEdit }) : ''] }));
-};
-
-
-/***/ }),
-
-/***/ "./src/components/ItemToDo/index.tsx":
-/*!*******************************************!*\
-  !*** ./src/components/ItemToDo/index.tsx ***!
-  \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ItemToDo: () => (/* reexport safe */ _ItemToDo__WEBPACK_IMPORTED_MODULE_0__.ItemToDo)
-/* harmony export */ });
-/* harmony import */ var _ItemToDo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ItemToDo */ "./src/components/ItemToDo/ItemToDo.tsx");
-
-
-
-/***/ }),
-
 /***/ "./src/components/KanbanBoard/KanbanBoard.tsx":
 /*!****************************************************!*\
   !*** ./src/components/KanbanBoard/KanbanBoard.tsx ***!
@@ -28148,18 +28087,14 @@ const SearchTodo = (0,react__WEBPACK_IMPORTED_MODULE_1__.memo)(() => {
         const date = `${Number(fromInput[2])}, ${Number(fromInput[1])}, ${Number(fromInput[0])}`;
         const isDateValid = (date) => !Number.isNaN(new Date(date).valueOf());
         if (isDateValid(new Date(date))) {
-            setTodosFiter(todos.filter(el => `${(new Date(el.startDay)).getDate()}
-                .${(new Date(el.startDay)).getMonth() + 1}
-                .${(new Date(el.startDay)).getFullYear()}` === fromInput.join('.')
+            setTodosFiter(todos.filter(el => (`${(new Date(el.startDay)).getDate()}.${(new Date(el.startDay)).getMonth() + 1}.${(new Date(el.startDay)).getFullYear()}` === fromInput.join('.'))
                 ||
-                    `${(new Date(el.endDay)).getDate()}
-                .${(new Date(el.endDay)).getMonth() + 1}
-                .${(new Date(el.endDay)).getFullYear()}` === fromInput.join('.')));
+                    (`${(new Date(el.endDay)).getDate()}.${(new Date(el.endDay)).getMonth() + 1}.${(new Date(el.endDay)).getFullYear()}` === fromInput.join('.'))));
         }
         else {
             setTodosFiter(todos.filter(el => el.text.includes(valueInput)));
         }
-    }, [todos]);
+    }, [todos, valueInput]);
     const handlerSearchClear = () => {
         const searchInput = document.getElementById("search-input");
         if (searchInput !== null) {
@@ -28306,7 +28241,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _utils_Context__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/Context */ "./src/utils/Context.tsx");
 /* harmony import */ var _utils_dragging__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/dragging */ "./src/utils/dragging.tsx");
-/* harmony import */ var _ItemToDo__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../ItemToDo */ "./src/components/ItemToDo/index.tsx");
+/* harmony import */ var _ToDoItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../ToDoItem */ "./src/components/ToDoItem/index.tsx");
 /* harmony import */ var _ToDoAddOrEdit__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../ToDoAddOrEdit */ "./src/components/ToDoAddOrEdit/index.tsx");
 
 
@@ -28314,7 +28249,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const ToDoColumns = ({ type, title, mark }) => {
+const ToDoColumns = (0,react__WEBPACK_IMPORTED_MODULE_1__.memo)(({ type, title, mark }) => {
     const { todos } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(_utils_Context__WEBPACK_IMPORTED_MODULE_2__.TodosContext);
     const [toggleToDoAddOrEdit, setToggleToDoAddOrEdit] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
     const [toggleToDoId] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(0);
@@ -28325,8 +28260,8 @@ const ToDoColumns = ({ type, title, mark }) => {
                             null] }), toggleToDoAddOrEdit ?
                 (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ToDoAddOrEdit__WEBPACK_IMPORTED_MODULE_5__.ToDoAddOrEdit, { setToggleToDoAddOrEdit: setToggleToDoAddOrEdit, toggleToDoId: toggleToDoId })
                 :
-                    '', todosToDo.map(todo => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ItemToDo__WEBPACK_IMPORTED_MODULE_4__.ItemToDo, { todo: todo, mark: mark }, todo.id)))] }));
-};
+                    '', todosToDo.map(todo => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ToDoItem__WEBPACK_IMPORTED_MODULE_4__.ToDoItem, { todo: todo, mark: mark }, todo.id)))] }));
+});
 
 
 /***/ }),
@@ -28342,6 +28277,67 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   ToDoColumns: () => (/* reexport safe */ _ToDoColumns__WEBPACK_IMPORTED_MODULE_0__.ToDoColumns)
 /* harmony export */ });
 /* harmony import */ var _ToDoColumns__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ToDoColumns */ "./src/components/ToDoColumns/ToDoColumns.tsx");
+
+
+
+/***/ }),
+
+/***/ "./src/components/ToDoItem/ToDoItem.tsx":
+/*!**********************************************!*\
+  !*** ./src/components/ToDoItem/ToDoItem.tsx ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ToDoItem: () => (/* binding */ ToDoItem)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _ToDoAddOrEdit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ToDoAddOrEdit */ "./src/components/ToDoAddOrEdit/index.tsx");
+
+
+
+const ToDoItem = (0,react__WEBPACK_IMPORTED_MODULE_1__.memo)(({ todo, mark }) => {
+    const [toggleToDoAddOrEdit, setToggleToDoAddOrEdit] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
+    const [toggleToDoId, setToggleToDoId] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(0);
+    const dateStart = new Date(todo.startDay);
+    const formattedDateStart = `${dateStart.getDate()}.${dateStart.getMonth() + 1}.${dateStart.getFullYear()}`;
+    const dateEnd = new Date(todo.endDay);
+    const formattedDateEnd = `${dateEnd.getDate()}.${dateEnd.getMonth() + 1}.${dateEnd.getFullYear()}`;
+    const handlerShowToDoEdit = () => {
+        setToggleToDoAddOrEdit(true);
+        setToggleToDoId(todo.id);
+    };
+    function handleOnDrag(e, id) {
+        e.dataTransfer.setData("id", id);
+    }
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { draggable: true, onDragStart: (e) => {
+            handleOnDrag(e, todo.id.toString());
+        }, className: todo.type !== "done" ?
+            (dateEnd > new Date() ?
+                "item__todo todo"
+                : "item__todo todo todo-error")
+            : "item__todo todo", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "todo__descr", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", { className: "todo__span", children: "\u041D\u0430\u0447\u0430\u043B\u043E:" }), " ", formattedDateStart] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "todo__descr", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", { className: "todo__span", children: "\u041E\u043A\u043E\u043D\u0447\u0430\u043D\u0438\u0435:" }), " ", formattedDateEnd] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "todo__descr", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", { className: "todo__span", children: "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435:" }), " ", todo.text] }), mark ?
+                        (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { onClick: handlerShowToDoEdit, type: "submit", className: "btn-reset", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", { className: "todo__btn", width: "40", height: "40", viewBox: "0 0 40 40", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("circle", { cx: "20", cy: "20", r: "20", fill: "white", fillOpacity: "0.08" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M26.5793 10.9449C26.2042 10.57 25.6956 10.3594 25.1653 10.3594C24.6349 10.3594 24.1263 10.57 23.7512 10.9449L22.1063 12.5909L27.4093 17.8939L29.0543 16.2499C29.2401 16.0642 29.3874 15.8437 29.488 15.601C29.5886 15.3583 29.6403 15.0982 29.6403 14.8354C29.6403 14.5727 29.5886 14.3126 29.488 14.0699C29.3874 13.8272 29.2401 13.6067 29.0543 13.4209L26.5793 10.9449ZM25.9953 19.3079L20.6922 14.0049L11.8572 22.8399L10.7812 29.2199L17.1612 28.1429L25.9953 19.3079Z", fill: "white" })] }) })
+                        : ''] }), toggleToDoAddOrEdit ? (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ToDoAddOrEdit__WEBPACK_IMPORTED_MODULE_2__.ToDoAddOrEdit, { toggleToDoId: toggleToDoId, setToggleToDoAddOrEdit: setToggleToDoAddOrEdit }) : ''] }));
+});
+
+
+/***/ }),
+
+/***/ "./src/components/ToDoItem/index.tsx":
+/*!*******************************************!*\
+  !*** ./src/components/ToDoItem/index.tsx ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ToDoItem: () => (/* reexport safe */ _ToDoItem__WEBPACK_IMPORTED_MODULE_0__.ToDoItem)
+/* harmony export */ });
+/* harmony import */ var _ToDoItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ToDoItem */ "./src/components/ToDoItem/ToDoItem.tsx");
 
 
 
@@ -28386,7 +28382,7 @@ const listColumnsTodos = [
     },
 ];
 const ToDoList = () => {
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "main__list list", children: [listColumnsTodos.map(column => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ToDoColumns__WEBPACK_IMPORTED_MODULE_2__.ToDoColumns, { type: column.type, title: column.title, mark: column.mark }))), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ButtonDeleteTodo__WEBPACK_IMPORTED_MODULE_1__.ButtonDeleteTodo, {})] }));
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "main__list list", children: [listColumnsTodos.map((column, i) => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ToDoColumns__WEBPACK_IMPORTED_MODULE_2__.ToDoColumns, { type: column.type, title: column.title, mark: column.mark }, i))), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ButtonDeleteTodo__WEBPACK_IMPORTED_MODULE_1__.ButtonDeleteTodo, {})] }));
 };
 
 
