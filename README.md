@@ -13,4 +13,4 @@
 #### Приложение запускается на дев сервере командой npm start.
 #### Сборка приложения - команда npm run build.
 #### Тесты запускаться командой npm run test.
-#### Дляпросмотра перейдите по ссылке https://rostislavzeberg.github.io/kanban-board/
+#### Для просмотра перейдите по ссылке https://rostislavzeberg.github.io/kanban-board/
